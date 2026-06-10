@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API Response Testing Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔍 API Testing Dashboard</h1>
+    <p class="subtitle">Test any public REST API instantly</p>
+
+    <!-- Input Section -->
+    <div class="input-section">
+      <input 
+        type="text" 
+        id="apiUrl" 
+        placeholder="Paste API URL here... e.g. https://jsonplaceholder.typicode.com/posts/1" 
+      />
+      <input 
+        type="text" 
+        id="schemaKeys" 
+        placeholder="Expected keys (comma separated)... e.g. id, title, body" 
+      />
+      <button onclick="testAPI()">Run Test</button>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="results" style="display:none;">
+
+      <h2>📊 Test Results</h2>
+
+      <div class="cards">
+        <div class="card" id="statusCard">
+          <p class="card-label">Status Code</p>
+          <p class="card-value" id="statusCode">-</p>
+        </div>
+        <div class="card" id="timeCard">
+          <p class="card-label">Response Time</p>
+          <p class="card-value" id="responseTime">-</p>
+        </div>
+      </div>
+
+      <!-- Schema Validation Table -->
+      <div id="schemaSection" style="display:none;">
+        <h3>✅ Schema Validation</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody id="schemaTable"></tbody>
+        </table>
+      </div>
+
+      <!-- Raw JSON Response -->
+      <h3>📦 Raw Response</h3>
+      <pre id="jsonOutput"></pre>
+
+    </div>
+
+    <!-- Error Section -->
+    <div class="error-box" id="errorBox" style="display:none;">
+      <p id="errorMsg"></p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
