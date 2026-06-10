@@ -4,7 +4,11 @@ import requests
 import time
 import os
 app = Flask(__name__)
-CORS(app)  # Allows frontend to connect to this backend
+CORS(app, origins=[
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://api-testing-dashboard.netlify.app"
+])  # Allows frontend to connect to this backend
 
 @app.route('/test-api', methods=['POST'])
 def test_api():
