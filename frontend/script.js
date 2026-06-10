@@ -19,7 +19,7 @@ async function testAPI() {
 
   try {
     // Call our Python backend
-    const response = await fetch('http://127.0.0.1:5000/test-api', {
+    const response = await fetch('https://api-testing-dashboard-backend.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url, expected_keys: expectedKeys })
